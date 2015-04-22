@@ -3,6 +3,10 @@ package cn.gejunyong.blog.web;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+
+
+
+import org.apache.log4j.Logger;
 //import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,23 +14,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import cn.gejunyong.blog.model.User;
+import cn.gejunyong.blog.service.IUserService;
+
 
 @Controller
 @SessionAttributes("loginUser")
 public class LoginController {
 	
-//	public IUserDao userDao;
-//	
-//	public IUserDao getUserDao() {
-//		return userDao;
-//	}
-//	@Resource
-//	public void setUserDao(IUserDao userDao) {
-//		this.userDao = userDao;
-//	}
+	Logger log=Logger.getLogger(getClass());
+	private IUserService userService;
+	public IUserService getUserService() {
+		return userService;
+	}
+	@Resource
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
+	}
 
 	@RequestMapping(value={"/","/login"},method=RequestMethod.GET)
 	public String login() {
+		
+		log.info(" in ..");
+		User u=userService.load(1);
+		log.info(" u"+u.getNickname());
 		return "login";
 	}
 	

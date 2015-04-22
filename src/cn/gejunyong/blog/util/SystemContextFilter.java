@@ -27,12 +27,14 @@ public class SystemContextFilter implements Filter {
 		} catch (NumberFormatException e) {
 		}
 		try {
-			SystemContext.setOffset(offset);
-			SystemContext.setSize(15);
+			SystemContext.setPageOffset(offset);
+			SystemContext.setPageSize(15);
 			chain.doFilter(req, resp);
 		}finally {
-			SystemContext.removeOffset();
-			SystemContext.removeSize();
+			SystemContext.removePageOffset();
+			SystemContext.removePageSize();
+			SystemContext.removeLoginUser();
+			SystemContext.removeRealPath();
 		}
 	}
 

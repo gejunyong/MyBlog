@@ -1,18 +1,17 @@
 package cn.gejunyong.blog.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.Entity;
-
 @Entity
-@Table(name="User")
+@Table(name="g_user")
 public class User {
 	private int id;
 	private String username;
 	private String password;
-	private String nikename;
+	private String nickname;
 	private int enabled;
 	
 	@Id
@@ -35,11 +34,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getNikename() {
-		return nikename;
+	public String getNickname() {
+		return nickname;
 	}
-	public void setNikename(String nikename) {
-		this.nikename = nikename;
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 	public int getEnabled() {
 		return enabled;

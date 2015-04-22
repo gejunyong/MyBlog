@@ -4,31 +4,32 @@ import java.util.List;
 
 public class Pager<T> {
 	private List<T> datas;
-	private int offset;
-	private int size;
-	private long total;
+	private int pageOffset;
+	private int pageSize;
+	private long totalRecord;
+	
 	public List<T> getDatas() {
 		return datas;
 	}
 	public void setDatas(List<T> datas) {
 		this.datas = datas;
 	}
-	public int getOffset() {
-		return offset;
+	public int getPageOffset() {
+		return pageOffset;
 	}
-	public void setOffset(int offset) {
-		this.offset = offset;
+	public void setPageOffset(int pageOffset) {
+		this.pageOffset = pageOffset;
 	}
-	public int getSize() {
-		return size;
+	public int getPageSize() {
+		return pageSize;
 	}
-	public void setSize(int size) {
-		this.size = size;
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
 	}
-	public long getTotal() {
-		return total;
+	public long getTotalRecord() {
+		return totalRecord;
 	}
-	public void setTotal(long total) {
-		this.total = total;
+	public void setTotalRecord(long totalRecord) {
+		this.totalRecord = totalRecord;
 	}
 }

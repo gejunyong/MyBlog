@@ -26,13 +26,12 @@ public class LoginFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse resp,
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest hsq = (HttpServletRequest)req;
-		User u = (User)hsq.getSession().getAttribute("loginUser");
-		if(u==null) {
-			((HttpServletResponse)resp).sendRedirect(hsq.getContextPath()+"/login");
-		}
+//		User u = (User)hsq.getSession().getAttribute("loginUser");
+//		if(u==null) {
+//			((HttpServletResponse)resp).sendRedirect(hsq.getContextPath()+"/login");
+//		}
 		chain.doFilter(req, resp);
 	}
-
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 
