@@ -18,11 +18,12 @@ public class UserService implements IUserService {
 	public void setUserDao(IUserDao userDao) {
 		this.userDao = userDao;
 	}
-
 	@Override
-	public User load(int id) {
+	public User loadUser(String userName) {
 		// TODO Auto-generated method stub
-		return userDao.load(id);
+		return userDao.loadUser(userName);
 	}
+
+
 
 }

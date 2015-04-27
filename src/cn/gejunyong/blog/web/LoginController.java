@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 
 
 
+
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.log4j.Logger;
 //import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.stereotype.Controller;
@@ -32,38 +34,38 @@ public class LoginController {
 		this.userService = userService;
 	}
 
-	@RequestMapping(value={"/","/login"},method=RequestMethod.GET)
+	@RequestMapping(value={"/login"},method=RequestMethod.GET)
 	public String login() {
-		
-		log.info(" in ..");
-		User u=userService.load(1);
-		log.info(" u"+u.getNickname());
-		return "login";
+		//User u=userService.loadUser("gejunyong");
+		//System.out.println(" pas :"+DigestUtils.md5Hex("ge").toUpperCase());
+		return "/login";
 	}
 	
-//	@RequestMapping(value={"/","/login"},method=RequestMethod.POST)
-//	public String login(String username,String password,Model model){
-//		if("".equals(username)||"".equals(password)){
-//			model.addAttribute("error","用户名 密码不能为空!");
-//			return "/login";
-//		}
-//		User u =userDao.load(username);
-//		if(u==null){
-//			model.addAttribute("error","用户名不存在!");
-//			return "/login";
-//		}
-//		if(!u.getPassword().equals(DigestUtils.md5Hex(password+username).toUpperCase())){
-//			model.addAttribute("error","用户密码错误!");
-//			return "/login";
-//		}
-//		model.addAttribute("loginUser", u);
-//		return "redirect:/user/main";
-//	}
+	@RequestMapping(value={"/login"},method=RequestMethod.POST)
+	public String login(String username,String password,Model model){
+		if("".equals(username)||"".equals(password)){
+			model.addAttribute("error","用户名 密码不能为空!");
+			return "/login";
+		}
+		User u =userService.loadUser(username);
+		if(u==null){
+			model.addAttribute("error","用户名不存在!");
+			return "/login";
+		}
+		if(!u.getPassword().equals(DigestUtils.md5Hex("ge"+username+password).toUpperCase())){
+			model.addAttribute("error","用户密码错误!");
+			return "/login";
+		}
+		model.addAttribute("loginUser",u);
+		return "redirect:/admin";
+	}
 	
 	@RequestMapping("/logout")
 	public String logout(Model model,HttpSession session) {
 		model.asMap().remove("loginUser");
 		session.invalidate();
-		return "redirect:/login";
+		return "redirect:/index";
 	}
+	
+	
 }

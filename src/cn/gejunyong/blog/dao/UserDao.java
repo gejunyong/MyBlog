@@ -8,9 +8,9 @@ import cn.gejunyong.blog.model.User;
 public class UserDao extends BaseDao<User> implements IUserDao {
 	
 	@Override
-	public User loadUser(int id) {
+	public User loadUser(String userName) {
 		// 根据Id 加载信息
-		return this.load(id);
+		return (User)this.queryByHql(" from User as user where user.username=? ",userName);
 	}
 
 
