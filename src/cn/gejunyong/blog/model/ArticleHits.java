@@ -1,10 +1,9 @@
 package cn.gejunyong.blog.model;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Entity;
 
 @Entity
 @Table(name="g_articlehits")

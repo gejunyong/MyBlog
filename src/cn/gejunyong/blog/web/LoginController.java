@@ -38,23 +38,23 @@ public class LoginController {
 	public String login() {
 		//User u=userService.loadUser("gejunyong");
 		//System.out.println(" pas :"+DigestUtils.md5Hex("ge").toUpperCase());
-		return "/login";
+		return "/login/login";
 	}
 	
 	@RequestMapping(value={"/login"},method=RequestMethod.POST)
 	public String login(String username,String password,Model model){
 		if("".equals(username)||"".equals(password)){
 			model.addAttribute("error","用户名 密码不能为空!");
-			return "/login";
+			return "/login/login";
 		}
-		User u =userService.loadUser(username);
+		User u =userService.loadUser("gejunyong");
 		if(u==null){
 			model.addAttribute("error","用户名不存在!");
-			return "/login";
+			return "/login/login";
 		}
 		if(!u.getPassword().equals(DigestUtils.md5Hex("ge"+username+password).toUpperCase())){
 			model.addAttribute("error","用户密码错误!");
-			return "/login";
+			return "/login/login";
 		}
 		model.addAttribute("loginUser",u);
 		return "redirect:/admin";

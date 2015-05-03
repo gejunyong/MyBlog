@@ -1,10 +1,9 @@
 package cn.gejunyong.blog.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Entity;
 
 @Entity
 @Table(name="g_blog")
@@ -13,6 +12,7 @@ public class Blog {
 	private String title;
 	private String subTitle;
 	private int enabled;
+	private String seo;
 	
 	@Id
 	@GeneratedValue
@@ -39,6 +39,12 @@ public class Blog {
 	}
 	public void setEnabled(int enabled) {
 		this.enabled = enabled;
+	}
+	public String getSeo() {
+		return seo;
+	}
+	public void setSeo(String seo) {
+		this.seo = seo;
 	}
 	
 	

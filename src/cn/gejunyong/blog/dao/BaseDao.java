@@ -51,6 +51,11 @@ public class BaseDao<T> extends HibernateDaoSupport implements IBaseDao<T> {
 		return this.getHibernateTemplate().load(getClz(), id);
 	}
 	
+	@Override
+	public T get(int id) {
+		return this.getHibernateTemplate().get(getClz(), id);
+	}
+	
 	private Query setParamterQuery(String hql,Object[] args) {
 		Query q = this.getSession().createQuery(hql);
 		if(args!=null) {

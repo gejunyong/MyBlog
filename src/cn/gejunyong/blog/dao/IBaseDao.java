@@ -13,6 +13,7 @@ public interface IBaseDao<T>{
 	public void delete(Object obj);
 	public void delete(int id);
 	public T load(int id);
+	public T get(int id);
 	/**
 	 * 通过hql获取一组对象，不进行分页
 	 * @param hql

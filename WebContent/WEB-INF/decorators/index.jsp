@@ -6,22 +6,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title><decorator:title default="欢迎使用用户管理系统"/></title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/main.css"/>
+<title><decorator:title default="Blank Ge"/>&nbsp;&nbsp;${blog.seo}</title>
 <decorator:head/>
 </head>
 <body>
-<h1><decorator:title/></h1>
-<c:if test="${not empty loginUser}">
-<a href="<%=request.getContextPath() %>/user/add">添加博客</a>
-<a href="<%=request.getContextPath() %>/user/users">博客列表</a>
-<a href="<%=request.getContextPath() %>/logout">退出系统</a>
-当前用户:${loginUser.nickname }
-</c:if>
+<h1>
+<c:out value="${blog.title }"></c:out>
+</h1>
+<h3>
+<c:out value="${blog.subTitle }"></c:out>
+</h3>
+<c:forEach var="menu" items="${menus}">
+<a href="<%=request.getContextPath() %>${menu.menuValue }">${menu.menuName }</a>
+</c:forEach>
+<!--<a href="<%=request.getContextPath() %>/">首页</a>-->
 <hr/>
 <decorator:body/>
 <div align="center" style="width:100%;border-top:1px solid; float:left;margin-top:10px;">
-	CopyRight@2012-2015<br/>
+	CopyRight@2015-2025<br/>
 	ICP备案证书号:<a href="http://www.miibeian.gov.cn">苏ICP备14010759号</a>
 </div>
 </body>

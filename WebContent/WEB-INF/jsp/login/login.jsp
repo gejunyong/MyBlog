@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Parallax Login Form - Bootsnipp.com</title>
+    <title>博客管理员登陆 - gejunyong.cn java mysql spring strusts2 hibernate mybaties </title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
  <style type="text/css">
     body{
@@ -16,26 +16,11 @@
 .vertical-offset-100{
     padding-top:100px;
 }    </style>
-   <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-   <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        window.alert = function(){};
-        var defaultCSS = document.getElementById('bootstrap-css');
-        function changeCSS(css){
-            if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />'); 
-            else $('head > link').filter(':first').replaceWith(defaultCSS); 
-        }
-     //    $( document ).ready(function() {
-     //    var iframe_height = parseInt($('html').height()); 
-     //    window.parent.postMessage( iframe_height, 'http://bootsnipp.com');
-     //   });
-    </script>
+   <link href="<%=request.getContextPath() %>/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <script src="<%=request.getContextPath() %>/resources/bootstrap/jquery-1.11.2.min.js"></script>
+   <script src="<%=request.getContextPath() %>/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	
-<!-- This is a very simple parallax effect achieved by simple CSS 3 multiple backgrounds, made by http://twitter.com/msurguy -->
-
 <div class="container">
     <div class="row vertical-offset-100">
     	<div class="col-md-4 col-md-offset-4">
@@ -68,17 +53,6 @@
 			</div>
 		</div>
 	</div>
-</div>	<script type="text/javascript">
-	$(document).ready(function(){
-  $(document).mousemove(function(e){
-     TweenLite.to($('body'), 
-        .5, 
-        { css: 
-            {
-                backgroundPosition: ""+ parseInt(event.pageX/8) + "px "+parseInt(event.pageY/'12')+"px, "+parseInt(event.pageX/'15')+"px "+parseInt(event.pageY/'15')+"px, "+parseInt(event.pageX/'30')+"px "+parseInt(event.pageY/'30')+"px"
-            }
-        });
-  });
-});	</script>
+</div>	
 </body>
 </html>

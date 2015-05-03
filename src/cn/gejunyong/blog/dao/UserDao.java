@@ -10,7 +10,7 @@ public class UserDao extends BaseDao<User> implements IUserDao {
 	@Override
 	public User loadUser(String userName) {
 		// 根据Id 加载信息
-		return (User)this.queryByHql(" from User as user where user.username=? ",userName);
+		return (User)this.queryByHql(" from User where username=? ",userName);
 	}
 
 

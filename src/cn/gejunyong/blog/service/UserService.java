@@ -20,7 +20,6 @@ public class UserService implements IUserService {
 	}
 	@Override
 	public User loadUser(String userName) {
-		// TODO Auto-generated method stub
 		return userDao.loadUser(userName);
 	}
 

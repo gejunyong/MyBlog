@@ -28,7 +28,8 @@ public class LoginFilter implements Filter {
 		HttpServletRequest hsq = (HttpServletRequest)req;
 		User u = (User)hsq.getSession().getAttribute("loginUser");
 		if(u==null) {
-			((HttpServletResponse)resp).sendRedirect(hsq.getContextPath()+"/index");
+			((HttpServletResponse)resp).sendRedirect(hsq.getContextPath()+"/login");
+			return;
 		}
 		chain.doFilter(req, resp);
 	}

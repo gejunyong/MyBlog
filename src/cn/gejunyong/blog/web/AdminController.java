@@ -11,4 +11,10 @@ public class AdminController {
 	public String main(){
 		return "/admin/main";
 	}
+	
+	//管理权限返回首页
+//	@RequestMapping("/admin/*")
+//	public String reIndex(){
+//		return "/index/index";
+//	}
 }
