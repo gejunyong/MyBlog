@@ -12,8 +12,8 @@
 <body>
 <h1><decorator:title/></h1>
 <c:if test="${not empty loginUser}">
-<a href="<%=request.getContextPath() %>/admin/add">添加博客</a>
-<a href="<%=request.getContextPath() %>/admin/users">博客列表</a>
+<a href="<%=request.getContextPath() %>/admin/articleadd">添加博客</a>
+<a href="<%=request.getContextPath() %>/admin/articlelist">博客列表</a>
 <a href="<%=request.getContextPath() %>/logout">退出系统</a>
 管理员:${loginUser.nickname }
 </c:if>
